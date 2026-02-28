@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Registro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🎓 Sistema de Registro de Alumnos</h1>
+    <nav class="tabs" aria-label="Secciones del sistema">
+      <button class="tab active" data-tab="configuracion">Configuración</button>
+      <button class="tab" data-tab="principal">Principal</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="configuracion" class="panel active" aria-labelledby="tab-configuracion">
+      <h2>Configuración</h2>
+      <p>Registra la información base del sistema.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Carreras</h3>
+          <form id="form-carrera" class="stack">
+            <input type="text" id="carrera-nombre" placeholder="Nombre de la carrera" required />
+            <button type="submit">Agregar carrera</button>
+          </form>
+          <ul id="lista-carreras" class="list"></ul>
+        </article>
+
+        <article class="card">
+          <h3>Clases</h3>
+          <form id="form-clase" class="stack">
+            <input type="text" id="clase-nombre" placeholder="Nombre de la clase" required />
+            <button type="submit">Agregar clase</button>
+          </form>
+          <ul id="lista-clases" class="list"></ul>
+        </article>
+
+        <article class="card">
+          <h3>Años escolares</h3>
+          <form id="form-anio" class="stack">
+            <input type="text" id="anio-nombre" placeholder="Ej: 1er Año" required />
+            <button type="submit">Agregar año</button>
+          </form>
+          <ul id="lista-anios" class="list"></ul>
+        </article>
+
+        <article class="card full">
+          <h3>Alumnos</h3>
+          <form id="form-alumno" class="stack two-cols">
+            <input type="text" id="alumno-nombre" placeholder="Nombre" required />
+            <input type="text" id="alumno-apellido" placeholder="Apellido" required />
+            <input type="date" id="alumno-fecha" required />
+            <button type="submit">Agregar alumno</button>
+          </form>
+          <ul id="lista-alumnos" class="list"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="principal" class="panel" aria-labelledby="tab-principal">
+      <h2>Principal</h2>
+      <p>Asocia los datos registrados y visualiza el estado de cada alumno.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Asociar carrera con año</h3>
+          <form id="form-carrera-anio" class="stack">
+            <select id="sel-carrera" required></select>
+            <select id="sel-anio-carrera" required></select>
+            <button type="submit">Asociar</button>
+          </form>
+          <ul id="lista-carrera-anio" class="list"></ul>
+        </article>
+
+        <article class="card">
+          <h3>Asociar año con clase</h3>
+          <form id="form-anio-clase" class="stack">
+            <select id="sel-anio-clase" required></select>
+            <select id="sel-clase" required></select>
+            <button type="submit">Asociar</button>
+          </form>
+          <ul id="lista-anio-clase" class="list"></ul>
+        </article>
+
+        <article class="card">
+          <h3>Asociar alumno con año</h3>
+          <form id="form-alumno-anio" class="stack">
+            <select id="sel-alumno" required></select>
+            <select id="sel-anio-alumno" required></select>
+            <button type="submit">Asociar</button>
+          </form>
+          <ul id="lista-alumno-anio" class="list"></ul>
+        </article>
+
+        <article class="card full">
+          <h3>Resumen de alumnos</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Alumno</th>
+                  <th>Carrera</th>
+                  <th>Año</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-alumnos"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
